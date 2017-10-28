@@ -1,0 +1,14 @@
+h2 Login
+form( (submit)='onLoginSubmit()' )
+    div
+        label Nick
+        input(  type='text' 
+                '[(ngModel)]'='nick' 
+                name='nick' )
+    div
+        label Password
+        input(  type='password' 
+                '[(ngModel)]'='pass' 
+                name='pass' )
+    input(      type='submit' 
+                value='Login' )

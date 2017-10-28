@@ -1,0 +1,11 @@
+
+<nav>
+  <ul>
+    <li><a [routerLink]="['/']">Home</a></li>
+    <li *ngIf="auth.loggedIn()"><a [routerLink]="['/chat/users']">Chat</a></li>
+    <li *ngIf="auth.loggedIn()"><a [routerLink]="['/profile']">Profile</a></li>
+    <li *ngIf="!auth.loggedIn()"><a [routerLink]="['/login']">Login</a></li>
+    <li *ngIf="!auth.loggedIn()"><a [routerLink]="['/register']">Register</a></li>
+    <li *ngIf="auth.loggedIn()"><a (click)="onLogoutClick()">Logout</a></li>
+  </ul>
+</nav>

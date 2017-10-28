@@ -1,0 +1,14 @@
+nav
+    ul
+        li
+            a(  [routerLink]="['/']"            ) Home
+        li(     *ngIf='auth.loggedIn()'         )
+            a(  [routerLink]="['/chat/users']"  ) Chat
+        li(     *ngIf='auth.loggedIn()'         )
+            a(  [routerLink]="['/profile']"     ) Profile
+        li(     *ngIf='!auth.loggedIn()'        )
+            a(  [routerLink]="['/login']"       ) Login
+        li(     *ngIf='!auth.loggedIn()'        )
+            a(  [routerLink]="['/register']"    ) Register
+        li(     *ngIf='auth.loggedIn()'         )
+            a(  (click)='onLogoutClick()'       ) Logout

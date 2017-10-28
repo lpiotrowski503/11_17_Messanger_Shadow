@@ -1,0 +1,25 @@
+{
+    "static.ignore": [
+        "\\.js\\.map$"
+    ],
+    "routing": {
+        "index": "/index.html",
+        "routes": {
+            "/": {
+                "prefix": false
+            },
+            "/login": {
+                "prefix": true
+            },
+            "/register": {
+                "prefix": true
+            },
+            "/users": {
+                "prefix": true
+            },
+            "/profile": {
+                "prefix": true
+            }
+        }
+    }
+}

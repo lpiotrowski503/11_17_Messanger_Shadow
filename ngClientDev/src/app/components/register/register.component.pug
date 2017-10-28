@@ -1,0 +1,14 @@
+h2 Register
+form( (submit)='onRegisterSubmit()' )
+    div
+        label Nick {{ nick }}
+        input(  type='text' 
+                '[(ngModel)]'='nick' 
+                name='nick' )
+    div
+        label Password {{ pass }}
+        input(  type='password'
+                '[(ngModel)]'='pass'
+                name='pass' )
+    input(      type='submit'
+                value='Submit' )

@@ -1,0 +1,12 @@
+
+<section>
+  <div id="chat">
+    <div id="output"></div>
+    <div id="userWrite" *ngIf="userWriteBool">Somebody Writing...</div>
+  </div>
+  <form id="form">
+    <input type="text" [(ngModel)]="input" name="input"/>
+    <input type="submit" value="Send" (click)="sendMessage()"/>
+    <input type="button" value="Exit" (click)="exitTalk()"/>
+  </form>
+</section>
