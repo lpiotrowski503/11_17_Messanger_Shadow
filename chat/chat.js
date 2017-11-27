@@ -2,7 +2,20 @@ module.exports = {
   start: io => {
     const talkModel = require('../models/talkModel')
 
-    let users = ['ilona', 'lukasz', 'bogda']
+    let users = [
+      'ilona',
+      'lukasz',
+      'bogda',
+      'ilona2',
+      'lukasz2',
+      'bogda2',
+      'ilona3',
+      'lukasz3',
+      'bogda3',
+      'ilona4',
+      'lukasz4',
+      'bogda4'
+    ]
     //---------------------------------------
     //  setting room
     //---------------------------------------

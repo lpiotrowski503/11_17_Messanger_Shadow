@@ -1,2 +1,56 @@
-//nav
-    background: #f45
+nav
+  +position(fixed, 0, 0)
+  +z(300)
+
+  #menu
+    +position(fixed, null, 0px, 0px, null)
+    +flex(1, 0, auto, column)
+    +x(100%)
+    +y(85vh)
+    +z(300)
+
+    li
+      +flex(1, 0, auto, column, center)
+
+    a
+      +flex(1, 0, auto, column, center)
+
+  #themes, #langs
+    +position(fixed, 0px, 0px)
+    +flex(1, 0, auto, column, center)
+    +x(100%)
+    +y(100vh)
+    +z(300)
+
+    li
+      +flex(0, 0, 20%, column)
+
+  #burger
+    +position(fixed, 10px, null, null, 10px)
+    +x(35px)
+    +y(35px)
+    +padding(10px)
+    +z(400)
+    border-radius: 27.5px
+
+    >a
+      +position(relative)
+      +y(100%)
+      +x(100%)
+      +z(400)
+
+      span
+        +position(relative)
+        +display()
+        +y(5px)
+        +x(35px)
+        left: 0px
+        border-radius: 2.5px
+
+    #navBackground
+      +position(fixed, 10px, null, null, 10px)
+      +x(35px)
+      +y(35px)
+      +z(-200)
+      +padding(10px)
+      border-radius: 27.5px

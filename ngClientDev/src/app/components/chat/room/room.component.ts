@@ -1,11 +1,12 @@
+import { LangService } from './../../../services/lang.service'
 import { ChatService } from './../../../services/chat.service'
 import { Router, ActivatedRoute } from '@angular/router'
-import { Component, OnInit, OnDestroy } from '@angular/core'
+import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core'
 
 @Component({
   selector: 'app-room',
   templateUrl: './room.component.html',
-  styleUrls: ['./room.component.sass']
+  encapsulation: ViewEncapsulation.None
 })
 export class RoomComponent implements OnInit, OnDestroy {
   input: string
@@ -14,7 +15,8 @@ export class RoomComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private chat: ChatService
+    private chat: ChatService,
+    public strings: LangService
   ) {}
 
   connect(id) {
@@ -52,8 +54,18 @@ export class RoomComponent implements OnInit, OnDestroy {
     this.chat.reset()
   }
 
+  event() {
+    const area = document.getElementById('area')
+    area.addEventListener('keydown', () => {
+      const height = area.scrollHeight - 10
+      area.style.cssText = 'height:' + height + 'px;'
+      console.log('ok')
+    })
+  }
+
   ngOnInit() {
     this.connect(this.route.snapshot.params['id'])
+    this.event()
   }
 
   ngOnDestroy() {

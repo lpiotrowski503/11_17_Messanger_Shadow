@@ -1,12 +1,14 @@
 
-<section>
-  <div id="chat">
-    <div id="output"></div>
-    <div id="userWrite" *ngIf="userWriteBool">Somebody Writing...</div>
+<section class="room">
+  <div class="chat">
+    <div class="output"></div>
+    <div id="userWrite" *ngIf="userWriteBool">{{ strings.lang?.room.somebody + '...' }}</div>
   </div>
-  <form id="form">
-    <input type="text" [(ngModel)]="input" name="input"/>
-    <input type="submit" value="Send" (click)="sendMessage()"/>
-    <input type="button" value="Exit" (click)="exitTalk()"/>
+  <form class="form" id="form">
+    <textarea class="area" id="area" maxlength="100" [(ngModel)]="input" name="input"></textarea>
+    <div>
+      <input type="submit" [value]="strings.lang?.room.send" (click)="sendMessage()"/>
+      <input type="button" [value]="strings.lang?.room.exit" (click)="exitTalk()"/>
+    </div>
   </form>
 </section>

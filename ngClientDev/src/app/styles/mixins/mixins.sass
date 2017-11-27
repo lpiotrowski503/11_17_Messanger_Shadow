@@ -1,0 +1,84 @@
+@mixin flex($grow, $shrink, $basic, $direction: row, $justifyContent: null, $align-items: null)
+  display: flex
+  flex: #{$grow} #{$shrink} #{$basic}
+  flex-direction: #{$direction}
+  justify-content: #{$justifyContent}
+  align-items: #{$align-items}
+
+@mixin position($position: static, $top: null, $left: null, $bottom: null, $right: null)
+  position: #{$position}
+  top: #{$top}
+  left: #{$left}
+  bottom: #{$bottom}
+  right: #{$right}
+
+@mixin display($display: block)
+  display: #{$display}
+
+@mixin padding($top: false, $right: false, $bottom: false, $left: false)
+  @if not $right and not $bottom and not $left
+    padding: #{$top}
+  @else if not $bottom and not $left
+    padding: #{$top} #{$right}
+  @else
+    @if not $top
+      $top: 0
+    @if not $right
+      $right: 0
+    @if not $bottom
+      $bottom: 0
+    @if not $left
+      $left: 0
+    padding-top:  #{$top}
+    padding-right: #{$right}
+    padding-bottom: #{$bottom}
+    padding-left: #{$left}
+
+@mixin margin($top: false, $right: false, $bottom: false, $left: false)
+  @if not $right and not $bottom and not $left
+    margin: #{$top}
+  @else if not $bottom and not $left
+    margin: #{$top} #{$right}
+  @else
+    @if not $top
+      $top: 0
+    @if not $right
+      $right: 0
+    @if not $bottom
+      $bottom: 0
+    @if not $left
+      $left: 0
+    margin-top:  #{$top}
+    margin-right: #{$right}
+    margin-bottom: #{$bottom}
+    margin-left: #{$left}
+
+@mixin reset()
+  padding: 0px
+  margin: 0px
+
+@mixin link()
+  a
+    display: block
+    text-decoration: none
+    cursor: pointer
+    text-align: center
+
+@mixin list()
+  ul, ol
+    list-style: none
+
+@mixin fontFamily($family)
+   font-family: #{$family}, serif
+
+@mixin fontSize($size)
+  font-size: $size
+
+@mixin y($height)
+  height: #{$height}
+
+@mixin x($width)
+  width: #{$width}
+
+@mixin z($z-index)
+  z-index: $z-index

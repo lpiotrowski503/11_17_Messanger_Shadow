@@ -1,5 +1,7 @@
 app-navbar
-h1 Welcome to {{title}}!
+//-app-spinner
 div( class='routes' )
-    flash-messages
+    flash-messages(
+      id='messages'
+    )
     router-outlet

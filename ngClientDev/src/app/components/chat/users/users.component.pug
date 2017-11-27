@@ -1,3 +1,8 @@
-section
+section(
+  id='users'
+  )
+  header
+    h3 {{ strings.lang?.users.h3 }}
+  article
     div( *ngFor='let user of users' )
-        button( (click)='callUser(user)' ) Connect: {{ user }}
+      a( (click)='callUser(user)' ) {{ user }}

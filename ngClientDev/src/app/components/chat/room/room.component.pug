@@ -1,8 +1,27 @@
-section
-    div( id='chat' )
-        div( id='output' )
-        div( id='userWrite', *ngIf='userWriteBool' ) Somebody Writing...
-    form( id='form' )
-        input( type='text', '[(ngModel)]'='input', name='input' )
-        input( type='submit', value='Send', (click)='sendMessage()')
-        input( type='button', value='Exit', (click)='exitTalk()')
+section.room
+  div.chat
+    div.output
+    div(
+      id='userWrite',
+      *ngIf='userWriteBool'
+      ) {{ strings.lang?.room.somebody + '...' }}
+  form.form(
+    id='form'
+    )
+    textarea.area(
+      id='area',
+      maxlength='100'
+      '[(ngModel)]'='input',
+      name='input'
+      )
+    div
+      input(
+        type='submit',
+        [value]='strings.lang?.room.send',
+        (click)='sendMessage()'
+        )
+      input(
+        type='button',
+        [value]='strings.lang?.room.exit',
+        (click)='exitTalk()'
+        )

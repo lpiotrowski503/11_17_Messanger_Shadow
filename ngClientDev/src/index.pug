@@ -22,14 +22,18 @@ html( lang='pl' )
     //- meta( 'apple-web-app-capable' content='yes' )
     //- meta( 'msaplication-starturl' content='/' )
   body
-    app-root
-    //- script.
-      //- if ('serviceWorker' in navigator) {
-      //-   navigator.serviceWorker.register('/sevice-worker.js')
-      //-   .then(registration => {
-      //-     console.log('SW registered')
-      //-   })
-      //-   .catch(err => {
-      //-     console.log('SW error', err)
-      //-   })
-      //- }
+    section.blue-violet-pink-theme(
+      id='app'
+    )
+      app-root
+        app-spinner
+      //- script.
+        //- if ('serviceWorker' in navigator) {
+        //-   navigator.serviceWorker.register('/sevice-worker.js')
+        //-   .then(registration => {
+        //-     console.log('SW registered')
+        //-   })
+        //-   .catch(err => {
+        //-     console.log('SW error', err)
+        //-   })
+        //- }

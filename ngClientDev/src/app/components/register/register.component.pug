@@ -1,14 +1,24 @@
-h2 Register
-form( (submit)='onRegisterSubmit()' )
+section(
+  id='register'
+  )
+  form(
+    (submit)='onRegisterSubmit()'
+    )
     div
-        label Nick {{ nick }}
-        input(  type='text' 
-                '[(ngModel)]'='nick' 
-                name='nick' )
+      label {{ strings.lang?.register.nick  }}
+      input(
+        type='text',
+        '[(ngModel)]'='nick',
+        name='nick'
+        )
     div
-        label Password {{ pass }}
-        input(  type='password'
-                '[(ngModel)]'='pass'
-                name='pass' )
-    input(      type='submit'
-                value='Submit' )
+      label {{ strings.lang?.register.password  }}
+      input(
+        type='password',
+        '[(ngModel)]'='pass',
+        name='pass' )
+    div
+      input(
+        type='submit',
+        [value]='strings.lang?.register.button'
+        )

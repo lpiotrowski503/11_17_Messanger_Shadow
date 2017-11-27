@@ -1,12 +1,13 @@
+import { LangService } from './../../../services/lang.service'
 import { ChatService } from './../../../services/chat.service'
 import { Router } from '@angular/router'
 import { AuthService } from './../../../services/auth.service'
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ViewEncapsulation } from '@angular/core'
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.sass']
+  encapsulation: ViewEncapsulation.None
 })
 export class UsersComponent implements OnInit {
   users = []
@@ -14,7 +15,8 @@ export class UsersComponent implements OnInit {
   constructor(
     private auth: AuthService,
     private router: Router,
-    private chat: ChatService
+    private chat: ChatService,
+    public strings: LangService
   ) {}
 
   callUser(user) {

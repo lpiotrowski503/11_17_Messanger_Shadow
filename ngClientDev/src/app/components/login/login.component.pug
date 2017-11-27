@@ -1,14 +1,25 @@
-h2 Login
-form( (submit)='onLoginSubmit()' )
+section(
+  id='login'
+  )
+  form(
+    (submit)='onLoginSubmit()'
+    )
     div
-        label Nick
-        input(  type='text' 
-                '[(ngModel)]'='nick' 
-                name='nick' )
+      label {{ strings.lang?.login.nick  }}
+      input(
+        type='text',
+        '[(ngModel)]'='nick',
+        name='nick'
+        )
     div
-        label Password
-        input(  type='password' 
-                '[(ngModel)]'='pass' 
-                name='pass' )
-    input(      type='submit' 
-                value='Login' )
+      label {{ strings.lang?.login.password  }}
+      input(
+        type='password',
+        '[(ngModel)]'='pass',
+        name='pass'
+        )
+    div
+      input(
+        type='submit',
+        [value]='strings.lang?.login.button'
+        )

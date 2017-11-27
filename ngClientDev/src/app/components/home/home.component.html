@@ -1,2 +1,49 @@
 
-<p>home works!</p>
+<section id="about">
+  <header>
+    <h1>{{ strings.lang?.home.header.h1 }}</h1>
+    <p>{{ strings.lang?.home.header.p1 }}</p>
+    <p>{{ strings.lang?.home.header.p2 }}</p>
+    <ul>
+      <ng-container *ngFor="let item of strings.lang?.home.header.li1">
+        <li>
+          <p>{{ item + ',' }}</p>
+        </li>
+      </ng-container>
+    </ul>
+  </header>
+  <article>
+    <h3>{{ strings.lang?.home.article.h1 }}</h3>
+    <ul>
+      <ng-container *ngFor="let item of strings.lang?.home.article.li1">
+        <li>
+          <p>{{ item + ',' }}</p>
+        </li>
+      </ng-container>
+    </ul>
+    <h3>{{ strings.lang?.home.article.h2 }}</h3>
+    <ul>
+      <ng-container *ngFor="let item of strings.lang?.home.article.li2">
+        <li>
+          <p>{{ item + ',' }}</p>
+        </li>
+      </ng-container>
+    </ul>
+    <h3>{{ strings.lang?.home.article.h3 }}</h3>
+    <ul>
+      <ng-container *ngFor="let item of strings.lang?.home.article.li3">
+        <li>
+          <p>{{ item + ',' }}</p>
+        </li>
+      </ng-container>
+    </ul>
+    <h3>{{ strings.lang?.home.article.h4 }}</h3>
+    <ul>
+      <ng-container *ngFor="let item of strings.lang?.home.article.li4">
+        <li>
+          <p>{{ item + ',' }}</p>
+        </li>
+      </ng-container>
+    </ul>
+  </article>
+</section>

@@ -1,14 +1,72 @@
 nav
-    ul
+  //-----------------------------//
+  //-     BURGER
+  //-----------------------------//
+  div(
+    id='burger',
+    class='close'
+    )
+    a(
+      (click)='showList("menu")'
+      )
+      div
+        span
+        span
+        span
+    div(
+      id='navBackground'
+    )
+    //------------------------------//
+    //-     MENU
+    //------------------------------//
+    ul(
+      id='menu',
+      class='hide'
+      )
+      //-------------------------------//
+      //-     ROUTING LOOP LIST
+      //-------------------------------//
+      ng-container( *ngFor='let controler of controlers; index as i' )
+        li( *ngIf='loggedIn(controler.id)' )
+          a(
+            [routerLink]='controler.href',
+            (click)='routingClick(controler.id)'
+            ) {{ strings.lang?.navBar[i].title }}
+      //-------------------------------//
+      //-     LANGUAGES LIST LINK
+      //-------------------------------//
+      li
+        a(
+          (click)='showList("langs")'
+          ) {{ strings.lang?.lang.title }}
+      //-------------------------------//
+      //-     THEMES LIST LINK
+      //-------------------------------//
+      li
+        a(
+          (click)='showList("themes")'
+          ) {{ strings.lang?.theme.title }}
+    //-------------------------------//
+    //-     LANGUAGES LIST
+    //-------------------------------//
+    ul(
+      id='langs',
+      class='hide'
+      )
+      ng-container( *ngFor='let lang of langs; index as i' )
         li
-            a(  [routerLink]="['/']"            ) Home
-        li(     *ngIf='auth.loggedIn()'         )
-            a(  [routerLink]="['/chat/users']"  ) Chat
-        li(     *ngIf='auth.loggedIn()'         )
-            a(  [routerLink]="['/profile']"     ) Profile
-        li(     *ngIf='!auth.loggedIn()'        )
-            a(  [routerLink]="['/login']"       ) Login
-        li(     *ngIf='!auth.loggedIn()'        )
-            a(  [routerLink]="['/register']"    ) Register
-        li(     *ngIf='auth.loggedIn()'         )
-            a(  (click)='onLogoutClick()'       ) Logout
+          a(
+            (click)='changeLang(lang.id)'
+            ) {{ strings.lang?.lang.langs[i].title  }}
+    //-------------------------------//
+    //-     THEMES LIST
+    //-------------------------------//
+    ul(
+      id='themes',
+      class='hide'
+    )
+      ng-container( *ngFor='let theme of themes; index as i' )
+        li
+          a(
+            (click)='changeTheme(theme.id)'
+            ) {{ strings.lang?.theme.themes[i].title  }}

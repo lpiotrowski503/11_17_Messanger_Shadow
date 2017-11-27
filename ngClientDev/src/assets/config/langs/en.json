@@ -1,0 +1,127 @@
+{
+  "navBar": [
+    {
+      "title": "About"
+    },
+    {
+      "title": "Chat"
+    },
+    {
+      "title": "Profile"
+    },
+    {
+      "title": "Login"
+    },
+    {
+      "title": "Register"
+    },
+    {
+      "title": "Logout"
+    }
+  ],
+  "lang": {
+    "title": "Languages",
+    "langs": [
+      {
+        "title": "Polish"
+      },
+      {
+        "title": "English"
+      }
+    ]
+  },
+  "theme": {
+    "title": "Themes",
+    "themes": [
+      {
+        "title": "Theme 1"
+      },
+      {
+        "title": "Theme 2"
+      },
+      {
+        "title": "Theme 3"
+      }
+    ]
+  },
+  "home": {
+    "header": {
+      "h1": "Welcome in Chatilla",
+      "p1":
+        "The Chatilla is an application to communicate in real time, inspired Messanger",
+      "p2": "App have functionality like",
+      "li1": [
+        "Create account",
+        "Authorization",
+        "Real time chat",
+        "Saving a conversation to a database",
+        "Progressive web app",
+        "Multilingual",
+        "Multi themes"
+      ]
+    },
+    "article": {
+      "h1": "To create an application I used",
+      "li1": [
+        "Html5",
+        "Css3",
+        "Javascript",
+        "ES6",
+        "Typescript",
+        "Angular 4",
+        "Sass",
+        "Flash messages"
+      ],
+      "h2": "However, to create a server that handles user activity",
+      "li2": [
+        "Node.js",
+        "Express",
+        "MongoDb",
+        "Mongoose",
+        "Socket.io",
+        "Passport",
+        "Json web token"
+      ],
+      "h3": "Besides, I used",
+      "li3": [
+        "Responsive web design",
+        "Single page application",
+        "Progresive web app"
+      ],
+      "h4": "In the future, I intend to develop",
+      "li4": [
+        "WebRTC - video chat",
+        "Search from the list of logged users",
+        "Loging with facebook and google",
+        "Adding photo to Profile",
+        "Edit Profile",
+        "Reset your password by sending an email with a link",
+        "Adding date to the message",
+        "Create user custom Theme"
+      ]
+    }
+  },
+  "login": {
+    "nick": "Nick",
+    "password": "Password",
+    "button": "Sign in"
+  },
+  "register": {
+    "nick": "Nick",
+    "password": "Password",
+    "button": "Sign up"
+  },
+  "messages": {
+    "logged": "You are logged",
+    "logOut": "You are logout",
+    "noCompleted": "Please complete the fields"
+  },
+  "users": {
+    "h3": "Logged users"
+  },
+  "room": {
+    "somebody": "Somebody write...",
+    "send": "Send",
+    "exit": "X"
+  }
+}

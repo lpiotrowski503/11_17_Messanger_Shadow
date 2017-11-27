@@ -1,13 +1,14 @@
+import { LangService } from './../../services/lang.service'
 import { ChatService } from './../../services/chat.service'
 import { Router } from '@angular/router'
 import { AuthService } from './../../services/auth.service'
-import { Component } from '@angular/core'
+import { Component, ViewEncapsulation } from '@angular/core'
 import { FlashMessagesService } from 'angular2-flash-messages'
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.sass']
+  encapsulation: ViewEncapsulation.None
 })
 export class LoginComponent {
   nick: string
@@ -17,7 +18,8 @@ export class LoginComponent {
     private auth: AuthService,
     private router: Router,
     private flashMsg: FlashMessagesService,
-    private chat: ChatService
+    private chat: ChatService,
+    public strings: LangService
   ) {}
 
   onLoginSubmit() {
@@ -39,7 +41,7 @@ export class LoginComponent {
         this.router.navigate(['chat/users'])
 
         // send message all ok
-        this.flashMsg.show('You are logged', {
+        this.flashMsg.show(this.strings.lang.messages.logged, {
           cssClass: 'alert-success',
           timeout: 5000
         })

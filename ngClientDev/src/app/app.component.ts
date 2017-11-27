@@ -1,15 +1,16 @@
+import { LangService } from './services/lang.service'
 import { ChatService } from './services/chat.service'
-import { Component, OnInit, OnDestroy } from '@angular/core'
+import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.sass']
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'app'
 
-  constructor(private chat: ChatService) {}
+  constructor(private chat: ChatService, private lang: LangService) {}
 
   tryGetLocalStorageUser() {
     try {
@@ -19,11 +20,18 @@ export class AppComponent implements OnInit, OnDestroy {
     }
   }
 
+  getLang(lang) {
+    this.lang.getLang(`${lang}`).subscribe(res => {
+      this.lang.lang = res
+    })
+  }
+
   ngOnInit() {
     if (this.tryGetLocalStorageUser()) {
       console.log(this.chat.getLocalStorageUser())
       this.chat.connect()
     }
+    this.getLang(navigator.language)
   }
 
   ngOnDestroy() {

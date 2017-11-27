@@ -1,11 +1,24 @@
 
 <nav>
-  <ul>
-    <li><a [routerLink]="['/']">Home</a></li>
-    <li *ngIf="auth.loggedIn()"><a [routerLink]="['/chat/users']">Chat</a></li>
-    <li *ngIf="auth.loggedIn()"><a [routerLink]="['/profile']">Profile</a></li>
-    <li *ngIf="!auth.loggedIn()"><a [routerLink]="['/login']">Login</a></li>
-    <li *ngIf="!auth.loggedIn()"><a [routerLink]="['/register']">Register</a></li>
-    <li *ngIf="auth.loggedIn()"><a (click)="onLogoutClick()">Logout</a></li>
-  </ul>
+  <div class="close" id="burger"><a (click)="showList(&quot;menu&quot;)">
+      <div><span></span><span></span><span></span></div></a>
+    <div id="navBackground"></div>
+    <ul class="hide" id="menu">
+      <ng-container *ngFor="let controler of controlers; index as i">
+        <li *ngIf="loggedIn(controler.id)"><a [routerLink]="controler.href" (click)="routingClick(controler.id)">{{ strings.lang?.navBar[i].title }}</a></li>
+      </ng-container>
+      <li><a (click)="showList(&quot;langs&quot;)">{{ strings.lang?.lang.title }}</a></li>
+      <li><a (click)="showList(&quot;themes&quot;)">{{ strings.lang?.theme.title }}</a></li>
+    </ul>
+    <ul class="hide" id="langs">
+      <ng-container *ngFor="let lang of langs; index as i">
+        <li><a (click)="changeLang(lang.id)">{{ strings.lang?.lang.langs[i].title  }}</a></li>
+      </ng-container>
+    </ul>
+    <ul class="hide" id="themes">
+      <ng-container *ngFor="let theme of themes; index as i">
+        <li><a (click)="changeTheme(theme.id)">{{ strings.lang?.theme.themes[i].title  }}</a></li>
+      </ng-container>
+    </ul>
+  </div>
 </nav>

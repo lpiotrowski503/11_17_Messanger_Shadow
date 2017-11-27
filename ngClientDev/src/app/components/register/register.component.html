@@ -1,13 +1,16 @@
 
-<h2>Register</h2>
-<form (submit)="onRegisterSubmit()">
-  <div>
-    <label>Nick {{ nick }}</label>
-    <input type="text" [(ngModel)]="nick" name="nick"/>
-  </div>
-  <div>
-    <label>Password {{ pass }}</label>
-    <input type="password" [(ngModel)]="pass" name="pass"/>
-  </div>
-  <input type="submit" value="Submit"/>
-</form>
+<section id="register">
+  <form (submit)="onRegisterSubmit()">
+    <div>
+      <label>{{ strings.lang?.register.nick  }}</label>
+      <input type="text" [(ngModel)]="nick" name="nick"/>
+    </div>
+    <div>
+      <label>{{ strings.lang?.register.password  }}</label>
+      <input type="password" [(ngModel)]="pass" name="pass"/>
+    </div>
+    <div>
+      <input type="submit" [value]="strings.lang?.register.button"/>
+    </div>
+  </form>
+</section>

@@ -1,1 +1,32 @@
-p home works!
+section(
+  id='about'
+)
+  header
+    h1 {{ strings.lang?.home.header.h1 }}
+    p {{ strings.lang?.home.header.p1 }}
+    p {{ strings.lang?.home.header.p2 }}
+    ul
+      ng-container( *ngFor='let item of strings.lang?.home.header.li1' )
+        li
+          p {{ item + ',' }}
+  article
+    h3 {{ strings.lang?.home.article.h1 }}
+    ul
+      ng-container( *ngFor='let item of strings.lang?.home.article.li1' )
+        li
+          p {{ item + ',' }}
+    h3 {{ strings.lang?.home.article.h2 }}
+    ul
+      ng-container( *ngFor='let item of strings.lang?.home.article.li2' )
+        li
+          p {{ item + ',' }}
+    h3 {{ strings.lang?.home.article.h3 }}
+    ul
+      ng-container( *ngFor='let item of strings.lang?.home.article.li3' )
+        li
+          p {{ item + ',' }}
+    h3 {{ strings.lang?.home.article.h4 }}
+    ul
+      ng-container( *ngFor='let item of strings.lang?.home.article.li4' )
+        li
+          p {{ item + ',' }}

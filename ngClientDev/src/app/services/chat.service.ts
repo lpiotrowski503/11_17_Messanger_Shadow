@@ -71,7 +71,7 @@ export class ChatService implements Message, Talk, ChatRoom {
   }
 
   getUserOutputMessage(data, user) {
-    const output = document.querySelector('#output')
+    const output = document.querySelector('.output')
     if (data.user === user) {
       this.outputMessage(data.msg, output, 'red')
     } else {
@@ -80,7 +80,7 @@ export class ChatService implements Message, Talk, ChatRoom {
   }
 
   outputMessage(data: string, output, cssClass) {
-    output.innerHTML += `<p class='${cssClass}'>${data}</p>`
+    output.innerHTML += `<div class='${cssClass}Panel'><div class='${cssClass}'><p>${data}</p></div></div>`
   }
 
   sendMessage(input, id, msg: Message) {

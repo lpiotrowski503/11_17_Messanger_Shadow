@@ -1,6 +1,9 @@
 
-<section>
-  <div *ngFor="let user of users">
-    <button (click)="callUser(user)">Connect: {{ user }}</button>
-  </div>
+<section id="users">
+  <header>
+    <h3>{{ strings.lang?.users.h3 }}</h3>
+  </header>
+  <article>
+    <div *ngFor="let user of users"><a (click)="callUser(user)">{{ user }}</a></div>
+  </article>
 </section>

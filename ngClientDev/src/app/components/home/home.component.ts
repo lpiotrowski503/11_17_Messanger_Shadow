@@ -1,13 +1,11 @@
-import { Component } from '@angular/core';
+import { LangService } from './../../services/lang.service'
+import { Component, ViewEncapsulation } from '@angular/core'
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.sass']
+  encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent {
-
-  constructor() { }
-
-
+  constructor(public strings: LangService) {}
 }

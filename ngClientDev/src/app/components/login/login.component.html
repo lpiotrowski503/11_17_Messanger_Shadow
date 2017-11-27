@@ -1,13 +1,16 @@
 
-<h2>Login</h2>
-<form (submit)="onLoginSubmit()">
-  <div>
-    <label>Nick</label>
-    <input type="text" [(ngModel)]="nick" name="nick"/>
-  </div>
-  <div>
-    <label>Password</label>
-    <input type="password" [(ngModel)]="pass" name="pass"/>
-  </div>
-  <input type="submit" value="Login"/>
-</form>
+<section id="login">
+  <form (submit)="onLoginSubmit()">
+    <div>
+      <label>{{ strings.lang?.login.nick  }}</label>
+      <input type="text" [(ngModel)]="nick" name="nick"/>
+    </div>
+    <div>
+      <label>{{ strings.lang?.login.password  }}</label>
+      <input type="password" [(ngModel)]="pass" name="pass"/>
+    </div>
+    <div>
+      <input type="submit" [value]="strings.lang?.login.button"/>
+    </div>
+  </form>
+</section>

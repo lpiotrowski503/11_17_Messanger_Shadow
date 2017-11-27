@@ -1,0 +1,38 @@
+@font-face
+  font-family: 'roboto-400'
+  src: url('./app/styles/fonts/roboto/Roboto-Medium.ttf') format('truetype')
+
+@font-face
+  font-family: 'roboto-300'
+  src: url('./app/styles/fonts/roboto/Roboto-Light.ttf') format('truetype')
+
+$fontSize: 32px
+
+
+h1
+  +fontSize($fontSize)
+
+h2
+  +fontSize($fontSize * 0.95)
+
+h3
+  +fontSize($fontSize * 0.9)
+
+h4
+  +fontSize($fontSize * 0.85)
+
+h5
+  +fontSize($fontSize * 0.8)
+
+h6
+  +fontSize($fontSize * 0.75)
+
+a, input
+  +fontSize($fontSize * 0.7)
+  font-weight: bold
+
+p, label
+  +fontSize($fontSize * 0.65)
+  font-style: italic
+
+

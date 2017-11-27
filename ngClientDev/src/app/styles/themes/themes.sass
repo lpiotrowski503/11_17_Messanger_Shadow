@@ -1,0 +1,107 @@
+$blue-violet-pink:  (c1:#02fefe,c2:#0280fe,c3:#0202fe,c4:#8002fe,c5:#fe02fe,c6:#fe0280,c7:#000)
+$blue-red-yellow: (c1: #6502fe, c2: #e302fe, c3: #fe029b, c4: #fe021d, c5: #fe6502, c6: #fee302, c7: #000)
+$red-yellow-green: (c1: #fe0202, c2: #fe8002, c3: #fefe02, c4: #80fe02, c5: #02fe02, c6: #02fe80, c7: #000)
+
+@mixin theme($c1, $c2, $c3, $c4, $c5, $c6, $c7)
+
+  $ColorPalette1: $c1
+  $ColorPalette2: $c2
+  $ColorPalette3: $c3
+  $ColorPalette4: $c4
+  $ColorPalette5: $c5
+  $ColorPalette6: $c6
+  $BaseColor: $c7
+
+  //  app
+  $bg-app: $ColorPalette1
+  $bg-app2: $ColorPalette6
+
+  //  navbar
+  $bg-nav: $ColorPalette2
+  $bg-nav2: $ColorPalette5
+
+  //form
+  $bg-button: $ColorPalette2
+  $bg-button2: $ColorPalette5
+  $bg-form: $BaseColor
+
+  //  red user
+  $bg-red: $ColorPalette4
+  $bg-red2: $ColorPalette6
+
+  //  blue user
+  $bg-blue: $ColorPalette1
+  $bg-blue2: $ColorPalette3
+
+  //  burger
+  $bg-burger-span: $BaseColor
+
+  //  others
+  $bg-header: $ColorPalette2
+  $bg-header2: $ColorPalette5
+
+  //-----------------------------------------------------------------
+
+  color: $BaseColor
+  background: linear-gradient(135deg, $bg-app, $bg-app2)
+
+  #navBackground, #themes, #langs
+    background: linear-gradient(135deg, $bg-nav, $bg-nav2)
+    box-shadow: -10px -10px 20px -5px $bg-nav, 10px 10px 20px -5px $bg-nav2
+
+  input
+    -webkit-box-shadow: 0 0 20px 0 rgba($bg-button2, 0.5) inset, 0 0 30px 20px rgba($bg-button, 0.5) inset
+
+  textarea
+    box-shadow: 0 0 20px 5px rgba($bg-button2, 1) inset
+    background: rgba($bg-button, 1)
+
+  input:-webkit-autofill
+    -webkit-box-shadow: 0 0 20px 0 rgba($bg-button2, 0.5) inset, 0 0 30px 20px rgba($bg-button, 0.5) inset
+
+  input[type='submit'], input[type='button']
+    background: linear-gradient(180deg, $bg-button, $bg-button2)
+    box-shadow: -10px -10px 20px -5px $bg-button, 10px 10px 20px -5px $bg-button2
+
+  a, button, input
+    color: $BaseColor
+    transition: color 0.5s
+
+    &:hover
+      color: $ColorPalette6
+
+  .form
+    background: $bg-form
+
+  .red
+    background: linear-gradient(135deg, $bg-red, $bg-red2)
+    box-shadow: -10px -10px 20px -5px $bg-red2, 10px 10px 20px -5px $bg-red2
+
+  .blue
+    background: linear-gradient(135deg, $bg-blue, $bg-blue2)
+    box-shadow: -10px -10px 20px -5px $bg-blue, 10px 10px 20px -5px $bg-blue2
+
+
+  #users
+    header
+      background: linear-gradient(180deg, $bg-header, $bg-header2)
+      box-shadow: 0px 5px 20px 0px $bg-header2
+
+    div
+      a
+        background: linear-gradient(180deg, $bg-button, $bg-button2)
+        box-shadow: -10px -10px 20px -5px $bg-button, 10px 10px 20px -5px $bg-button2
+
+  #burger
+    span
+      box-shadow: 0px 0px 10px -1px $bg-burger-span
+      background: $bg-burger-span
+
+.blue-violet-pink-theme
+  +theme($blue-violet-pink...)
+
+.blue-red-yellow-theme
+  +theme($blue-red-yellow...)
+
+.red-yellow-green-theme
+  +theme($red-yellow-green...)

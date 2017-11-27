@@ -1,0 +1,56 @@
+.room
+  +position(relative, 0px, 0px)
+  +x(100%)
+  min-height: 100vh
+
+.form
+  +position(fixed, null, 0px, 0px)
+  +x(100%)
+  min-height: 20px
+  display: flex
+
+  *
+    border: none
+    +margin(5px)
+    +padding(5px)
+    border-radius: 5px
+
+  div
+    display: flex
+    flex-direction: column
+    min-width: 80px
+    +margin(0px)
+    +padding(0px)
+
+  .area
+    resize: none
+    flex-grow: 1
+    +fontSize(20px)
+
+.chat
+  +flex(1, 0, auto, column)
+  +padding(0px, 0px, 40px, 0px)
+
+.output
+  display: flex
+  flex-direction: column
+  +padding(100px, 0px)
+
+  .redPanel, .bluePanel
+    display: flex
+
+  .red, .blue
+    max-width: 50%
+    border-radius: 10px
+    +padding(10px)
+    +margin(10px)
+
+
+  .redPanel
+    justify-content: flex-start
+
+  .bluePanel
+    justify-content: flex-end
+
+  p
+    word-wrap: break-word
