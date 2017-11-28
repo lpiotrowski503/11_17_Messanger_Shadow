@@ -2,20 +2,22 @@ module.exports = {
   start: io => {
     const talkModel = require('../models/talkModel')
 
-    let users = [
-      'ilona',
-      'lukasz',
-      'bogda',
-      'ilona2',
-      'lukasz2',
-      'bogda2',
-      'ilona3',
-      'lukasz3',
-      'bogda3',
-      'ilona4',
-      'lukasz4',
-      'bogda4'
-    ]
+    // let users = [
+    //   'ilona',
+    //   'lukasz',
+    //   'bogda',
+    //   'ilona2',
+    //   'lukasz2',
+    //   'bogda2',
+    //   'ilona3',
+    //   'lukasz3',
+    //   'bogda3',
+    //   'ilona4',
+    //   'lukasz4',
+    //   'bogda4'
+    // ]
+
+    let users = ['cycu', 'dupa']
     //---------------------------------------
     //  setting room
     //---------------------------------------
@@ -68,26 +70,28 @@ module.exports = {
         //-----------------------------
         talkModel.findTalk(data, (err, talk) => {
           if (err) throw err
-          if (talk) {
-            console.log('znaleziono rozmowe')
+          if (
+            (data.users[0] === talk.users[0] ||
+              data.users[0] === talk.users[1]) &&
+            (data.users[1] === talk.users[0] || data.users[1] === talk.users[1])
+          ) {
             this.newTalk = talk
             io.sockets.emit('callUser', this.newTalk)
+            console.log('znaleziono rozmowe')
           } else {
-            console.log('nie znaleziono rozmowy')
             this.newTalk = new talkModel({
               users: data.users
             })
             io.sockets.emit('callUser', this.newTalk)
+            console.log('nie znaleziono rozmowy')
           }
         })
-        //console.log(this.newTalk)
       })
       //-----------------
       // go set chat room
       //-----------------
       socket.on('chatRoom', data => {
         room(socket, this.newTalk)
-        //io.sockets.emit('chatRoom', this.newTalk)
         socket.broadcast.emit('chatRoom', this.newTalk)
       })
       //--------------------------
@@ -98,7 +102,7 @@ module.exports = {
           if (data.logged && users.indexOf(data.nick) === -1) {
             users.push(data.nick)
           }
-          if (!data.logged) {
+          if (!data.logged && users.indexOf(data.nick) !== -1) {
             users.splice(users.indexOf(data.nick), 1)
           }
         } else {

@@ -17,7 +17,6 @@ import { UsersComponent } from './components/chat/users/users.component'
 import { FlashMessagesModule } from 'angular2-flash-messages'
 import { HttpModule } from '@angular/http'
 import { FormsModule } from '@angular/forms'
-import { ChatComponent } from './components/chat/chat.component'
 import { RoomComponent } from './components/chat/room/room.component'
 import { SpinnerComponent } from './components/spinner/spinner.component'
 import { SpinnerService } from './services/spinner.service'
@@ -31,7 +30,6 @@ import { SpinnerService } from './services/spinner.service'
     RegisterComponent,
     ProfileComponent,
     UsersComponent,
-    ChatComponent,
     RoomComponent,
     SpinnerComponent
   ],

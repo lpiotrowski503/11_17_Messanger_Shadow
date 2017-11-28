@@ -1,5 +1,4 @@
 import { RoomComponent } from './components/chat/room/room.component'
-import { ChatComponent } from './components/chat/chat.component'
 import { AuthGuard } from './guards/auth.guard'
 import { ProfileComponent } from './components/profile/profile.component'
 import { UsersComponent } from './components/chat/users/users.component'
@@ -24,20 +23,14 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
-    path: 'chat',
-    component: ChatComponent,
-    children: [
-      {
-        path: 'users',
-        component: UsersComponent,
-        canActivate: [AuthGuard]
-      },
-      {
-        path: ':id',
-        component: RoomComponent,
-        canActivate: [AuthGuard]
-      }
-    ]
+    path: 'chat/users',
+    component: UsersComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'chat/:id',
+    component: RoomComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'profile',

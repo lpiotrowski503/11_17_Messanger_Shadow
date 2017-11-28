@@ -1,32 +1,34 @@
-section(
+section.about(
   id='about'
 )
-  header
-    h1 {{ strings.lang?.home.header.h1 }}
-    p {{ strings.lang?.home.header.p1 }}
-    p {{ strings.lang?.home.header.p2 }}
-    ul
-      ng-container( *ngFor='let item of strings.lang?.home.header.li1' )
-        li
-          p {{ item + ',' }}
-  article
-    h3 {{ strings.lang?.home.article.h1 }}
-    ul
+  header.header
+    h1.header__title {{ strings.lang?.home.header.h1 }}
+    p.header__subtitle {{ strings.lang?.home.header.p1 }}
+    ul.header__list
+      li.header__list__item
+        h6.header__list__title {{ strings.lang?.home.header.p2 }}
+        ul.header__sublist
+          ng-container( *ngFor='let item of strings.lang?.home.header.li1' )
+            li.header__sublist__item
+              p.header__sublist__item__content {{ item + ',' }}
+  article.article
+    h3.article__title {{ strings.lang?.home.article.h1 }}
+    ul.article__list
       ng-container( *ngFor='let item of strings.lang?.home.article.li1' )
-        li
-          p {{ item + ',' }}
-    h3 {{ strings.lang?.home.article.h2 }}
-    ul
+        li.article__list__item
+          p.article__list__content {{ item + ',' }}
+    h3.article__title {{ strings.lang?.home.article.h2 }}
+    ul.article__list
       ng-container( *ngFor='let item of strings.lang?.home.article.li2' )
-        li
-          p {{ item + ',' }}
-    h3 {{ strings.lang?.home.article.h3 }}
-    ul
+        li.article__list__item
+          p.article__list__content {{ item + ',' }}
+    h3.article__title {{ strings.lang?.home.article.h3 }}
+    ul.article__list
       ng-container( *ngFor='let item of strings.lang?.home.article.li3' )
-        li
-          p {{ item + ',' }}
-    h3 {{ strings.lang?.home.article.h4 }}
-    ul
+        li.article__list__item
+          p.article__list__content {{ item + ',' }}
+    h3.article__title {{ strings.lang?.home.article.h4 }}
+    ul.article__list
       ng-container( *ngFor='let item of strings.lang?.home.article.li4' )
-        li
-          p {{ item + ',' }}
+        li.article__list__item
+          p.article__list__content {{ item + ',' }}
