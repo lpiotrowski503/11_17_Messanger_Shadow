@@ -1,3 +1,4 @@
+import { SpinnerService } from './../../services/spinner.service'
 import { LangService } from './../../services/lang.service'
 import { FlashMessagesService } from 'angular2-flash-messages'
 import { AuthService } from './../../services/auth.service'
@@ -18,7 +19,8 @@ export class NavbarComponent {
     public auth: AuthService,
     private router: Router,
     private flashMsg: FlashMessagesService,
-    public strings: LangService
+    public strings: LangService,
+    private spinner: SpinnerService
   ) {
     this.controlers = [
       {
@@ -94,11 +96,13 @@ export class NavbarComponent {
   }
 
   goOut() {
+    this.spinner.spinnerControler()
     this.auth.logOut()
     this.flashMsg.show(this.strings.lang.messages.logOut, {
       cssClass: 'alert-success',
       timeout: 5000
     })
+    this.spinner.spinnerControler()
     return false
   }
 

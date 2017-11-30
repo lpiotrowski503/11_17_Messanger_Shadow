@@ -1,8 +1,12 @@
-p
-  position: absolute
-  background: red
-  z-index: 250
+.canvas
+  +position(fixed, 0px, 0px)
+  +z(1000)
+  +x(100%)
+  +y(100%)
+  opacity: 0.9
 
-canvas
-  position: relative
-  z-index: 200
+  transition: all 1s
+
+  *
+    +x(100%)
+    +y(100%)

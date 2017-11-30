@@ -1,3 +1,4 @@
+import { SpinnerService } from './services/spinner.service'
 import { LangService } from './services/lang.service'
 import { ChatService } from './services/chat.service'
 import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core'
@@ -8,9 +9,11 @@ import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core'
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit, OnDestroy {
-  title = 'app'
-
-  constructor(private chat: ChatService, private lang: LangService) {}
+  constructor(
+    private chat: ChatService,
+    private lang: LangService,
+    private spinner: SpinnerService
+  ) {}
 
   tryGetLocalStorageUser() {
     try {

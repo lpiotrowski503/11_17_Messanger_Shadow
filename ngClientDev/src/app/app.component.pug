@@ -1,5 +1,6 @@
 app-navbar
-//-app-spinner
+ng-container( *ngIf='spinner.spinner' )
+  app-spinner
 div( class='routes' )
     flash-messages(
       id='messages'

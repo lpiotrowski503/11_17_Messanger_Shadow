@@ -1,3 +1,4 @@
+import { SpinnerService } from './../../services/spinner.service'
 import { LangService } from './../../services/lang.service'
 import { Router } from '@angular/router'
 import { AuthService } from './../../services/auth.service'
@@ -19,10 +20,12 @@ export class RegisterComponent {
     private flashMsg: FlashMessagesService,
     private auth: AuthService,
     private router: Router,
-    public strings: LangService
+    public strings: LangService,
+    private spinner: SpinnerService
   ) {}
 
   onRegisterSubmit() {
+    this.spinner.spinnerControler()
     const user = {
       nick: this.nick,
       pass: this.pass
@@ -52,5 +55,6 @@ export class RegisterComponent {
         this.router.navigate(['/register'])
       }
     })
+    this.spinner.spinnerControler()
   }
 }

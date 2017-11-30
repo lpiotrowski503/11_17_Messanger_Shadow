@@ -97,7 +97,8 @@
         "Edit Profile",
         "Reset your password by sending an email with a link",
         "Adding date to the message",
-        "Create user custom Theme"
+        "Create user custom Theme",
+        "Lazy Load"
       ]
     }
   },
@@ -120,7 +121,7 @@
     "h3": "Logged users"
   },
   "room": {
-    "somebody": "Somebody write...",
+    "somebody": "Write...",
     "send": "Send",
     "exit": "X"
   }

@@ -53,7 +53,7 @@ export class ChatService implements Message, Talk, ChatRoom {
     this.socket.on(url, callback)
   }
 
-  emiter(url: string, sendData: {} | string): void {
+  emiter(url: string, sendData: {} | string | any[]): void {
     this.socket.emit(url, sendData)
   }
 
@@ -64,7 +64,7 @@ export class ChatService implements Message, Talk, ChatRoom {
   userWriteListener(chatRoom, on: boolean = true): void {
     document.forms.namedItem('form').addEventListener('keydown', () => {
       if (on) {
-        this.emiter(chatRoom, 'somebody writing...')
+        this.emiter(chatRoom, this.users)
         on = !on
       }
     })

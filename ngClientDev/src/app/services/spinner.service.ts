@@ -7,6 +7,12 @@ export class SpinnerService {
   particles: any[]
   c: any
 
+  spinner = false
+
+  spinnerControler() {
+    this.spinner = !this.spinner
+  }
+
   constructor() {
     this.colors = [
       ['#6502fe', '#e302fe', '#fe029b', '#fe021d', '#fe6502', '#fee302'],
@@ -36,7 +42,7 @@ export class SpinnerService {
 
   animate = () => {
     requestAnimationFrame(this.animate)
-    this.c.fillStyle = 'rgba(255, 68 , 255, 0.15)'
+    this.c.fillStyle = 'rgba(100, 100 , 100, 0.15)'
     this.c.fillRect(0, 0, this.canvas.width, this.canvas.height)
     this.particles.forEach(particle => {
       particle.update()
@@ -70,11 +76,11 @@ export class Particle {
 
   constructor(x, y, radius, color) {
     this.start = 0
-    this.colors = [
-      ['#6502fe', '#e302fe', '#fe029b', '#fe021d', '#fe6502', '#fee302'],
-      ['#02fefe', '#0280fe', '#0202fe', '#8002fe', '#fe02fe', '#fe0280'],
-      ['#fe0202', '#fe8002', '#fefe02', '#80fe02', '#02fe02', '#02fe80']
-    ]
+    // this.colors = [
+    //   ['#6502fe', '#e302fe', '#fe029b', '#fe021d', '#fe6502', '#fee302'],
+    //   ['#02fefe', '#0280fe', '#0202fe', '#8002fe', '#fe02fe', '#fe0280'],
+    //   ['#fe0202', '#fe8002', '#fefe02', '#80fe02', '#02fe02', '#02fe80']
+    // ]
     this.canvas = document.querySelector('canvas')
     this.c = this.canvas.getContext('2d')
     this.x = x
@@ -82,26 +88,26 @@ export class Particle {
     this.y = y
     this.radius = radius
     this.color = color[0]
-    this.changeColor = () => {
-      let i = 0
-      setInterval(() => {
-        if (i === this.colors.length) {
-          i = 0
-        } else {
-          this.color = color[i]
-          i++
-        }
-      }, 2000)
-    }
-    this.changeColor()
+    // this.changeColor = () => {
+    //   let i = 0
+    //   setInterval(() => {
+    //     if (i === this.colors.length) {
+    //       i = 0
+    //     } else {
+    //       this.color = color[i]
+    //       i++
+    //     }
+    //   }, 2000)
+    // }
+    // this.changeColor()
     this.radians = Math.random() * Math.PI * 2
     this.velocity = Math.random() * 0.03 + 0.01
     this.randomIntFromRange = (min, max) => {
       return Math.floor(Math.random() * (max - min + 1) + min)
     }
     this.distanceFromCenter = this.randomIntFromRange(
-      this.canvas.height * 0.2,
-      this.canvas.height * 0.3
+      this.canvas.height * 0.1,
+      this.canvas.height * 0.15
     )
     // this.lastY = this.canvas.height * 1.5
     // this.move = (arg = 0) => {

@@ -21,6 +21,7 @@ export class UsersComponent implements OnInit {
 
   callUser(user) {
     this.chat.emiter('callUser', {
+      msg: 'connect talk',
       users: [user, this.chat.getLocalStorageUser()]
     })
   }

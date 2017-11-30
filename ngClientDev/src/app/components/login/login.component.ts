@@ -1,3 +1,4 @@
+import { SpinnerService } from './../../services/spinner.service'
 import { LangService } from './../../services/lang.service'
 import { ChatService } from './../../services/chat.service'
 import { Router } from '@angular/router'
@@ -19,10 +20,12 @@ export class LoginComponent {
     private router: Router,
     private flashMsg: FlashMessagesService,
     private chat: ChatService,
-    public strings: LangService
+    public strings: LangService,
+    private spinner: SpinnerService
   ) {}
 
   onLoginSubmit() {
+    this.spinner.spinnerControler()
     const user = {
       nick: this.nick,
       pass: this.pass
@@ -56,5 +59,6 @@ export class LoginComponent {
         this.router.navigate(['login'])
       }
     })
+    this.spinner.spinnerControler()
   }
 }

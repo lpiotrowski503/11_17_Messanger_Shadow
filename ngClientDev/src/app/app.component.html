@@ -1,5 +1,8 @@
 
 <app-navbar></app-navbar>
+<ng-container *ngIf="spinner.spinner">
+  <app-spinner></app-spinner>
+</ng-container>
 <div class="routes">
   <flash-messages id="messages"></flash-messages>
   <router-outlet></router-outlet>
