@@ -4,6 +4,14 @@
     <h3>{{ strings.lang?.users.h3 }}</h3>
   </header>
   <article>
-    <div *ngFor="let user of users"><a (click)="callUser(user)">{{ user }}</a></div>
+    <ng-container *ngFor="let user of users">
+      <div><a (click)="callUser(user, 'call to user')"><span class="fa fa-user-circle"></span><span>{{ user}}</span></a></div>
+    </ng-container>
   </article>
+  <aside class="user-called" *ngIf="userCalled">
+    <div class="user-called__container">
+      <h6 class="user-called__header">{{ userCalled }}</h6>
+      <div class="user-called__link-container"><a class="user-called__link" (click)="callUser(userCalled, 'connect talk')"><span class="fa fa-phone"></span></a><a class="user-called__link" (click)="cancelCall()"><span class="fa fa-phone"></span></a></div>
+    </div>
+  </aside>
 </section>

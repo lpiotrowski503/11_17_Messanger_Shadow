@@ -11,6 +11,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core'
 })
 export class UsersComponent implements OnInit {
   users = []
+  userCalled = ''
 
   constructor(
     private auth: AuthService,
@@ -19,11 +20,16 @@ export class UsersComponent implements OnInit {
     public strings: LangService
   ) {}
 
-  callUser(user) {
+  callUser(user, msg) {
     this.chat.emiter('callUser', {
-      msg: 'connect talk',
-      users: [user, this.chat.getLocalStorageUser()]
+      msg: msg,
+      from: this.chat.getLocalStorageUser(),
+      to: user
     })
+  }
+
+  cancelCall() {
+    this.userCalled = ''
   }
 
   connect() {
@@ -38,11 +44,20 @@ export class UsersComponent implements OnInit {
     })
     this.chat.emiter('getUsers', 'getLoggedUsers')
     this.chat.listener('callUser', data => {
-      if (
-        data.users[0] === JSON.parse(localStorage.getItem('user')).nick ||
-        data.users[1] === JSON.parse(localStorage.getItem('user')).nick
-      ) {
-        this.router.navigate([`/chat/${data._id}`])
+      if (data.msg) {
+        if (
+          data.to === this.chat.getLocalStorageUser() &&
+          this.userCalled === ''
+        ) {
+          this.userCalled = data.from
+        }
+      } else {
+        if (
+          data.users[0] === JSON.parse(localStorage.getItem('user')).nick ||
+          data.users[1] === JSON.parse(localStorage.getItem('user')).nick
+        ) {
+          this.router.navigate([`/chat/${data._id}`])
+        }
       }
     })
     this.chat.setUserTalk()

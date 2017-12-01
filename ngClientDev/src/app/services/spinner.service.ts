@@ -65,7 +65,6 @@ export class Particle {
   radians: any
   velocity: any
   distanceFromCenter: any
-  // move: any
   update: any
   draw: any
   randomIntFromRange: any
@@ -76,30 +75,12 @@ export class Particle {
 
   constructor(x, y, radius, color) {
     this.start = 0
-    // this.colors = [
-    //   ['#6502fe', '#e302fe', '#fe029b', '#fe021d', '#fe6502', '#fee302'],
-    //   ['#02fefe', '#0280fe', '#0202fe', '#8002fe', '#fe02fe', '#fe0280'],
-    //   ['#fe0202', '#fe8002', '#fefe02', '#80fe02', '#02fe02', '#02fe80']
-    // ]
     this.canvas = document.querySelector('canvas')
     this.c = this.canvas.getContext('2d')
     this.x = x
-    // this.y = y + this.lastY
     this.y = y
     this.radius = radius
     this.color = color[0]
-    // this.changeColor = () => {
-    //   let i = 0
-    //   setInterval(() => {
-    //     if (i === this.colors.length) {
-    //       i = 0
-    //     } else {
-    //       this.color = color[i]
-    //       i++
-    //     }
-    //   }, 2000)
-    // }
-    // this.changeColor()
     this.radians = Math.random() * Math.PI * 2
     this.velocity = Math.random() * 0.03 + 0.01
     this.randomIntFromRange = (min, max) => {
@@ -109,25 +90,6 @@ export class Particle {
       this.canvas.height * 0.1,
       this.canvas.height * 0.15
     )
-    // this.lastY = this.canvas.height * 1.5
-    // this.move = (arg = 0) => {
-    //   if (arg === 1) {
-    //     if (this.lastY <= this.canvas.height / 2) {
-    //       this.lastY = this.canvas.height / 2
-    //       arg = 0
-    //     } else {
-    //       this.lastY -= 10
-    //     }
-    //   }
-    //   if (arg === -1) {
-    //     if (this.lastY <= this.canvas.height * -1.5) {
-    //       this.lastY = this.canvas.height * -1.5
-    //       arg = 0
-    //     } else {
-    //       this.lastY -= 10
-    //     }
-    //   }
-    // }
     this.update = () => {
       const lastPoint = {
         x: this.x,
@@ -135,10 +97,8 @@ export class Particle {
       }
       this.radians += this.velocity
       this.x = x + Math.cos(this.radians) * this.distanceFromCenter
-      // this.y = this.lastY + Math.sin(this.radians) * this.distanceFromCenter
       this.y = y + Math.sin(this.radians) * this.distanceFromCenter
       this.draw(lastPoint)
-      // this.move(this.start)
     }
     this.draw = lastPoint => {
       this.c.beginPath()

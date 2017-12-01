@@ -4,5 +4,16 @@ section(
   header
     h3 {{ strings.lang?.users.h3 }}
   article
-    div( *ngFor='let user of users' )
-      a( (click)='callUser(user)' ) {{ user }}
+    ng-container( *ngFor='let user of users' )
+      div
+        a( (click)="callUser(user, 'call to user')" )
+          span( class='fa fa-user-circle' )
+          span {{ user}}
+  aside.user-called( *ngIf='userCalled' )
+      div.user-called__container
+        h6.user-called__header {{ userCalled }}
+        div.user-called__link-container
+          a.user-called__link( (click)="callUser(userCalled, 'connect talk')" )
+            span( class='fa fa-phone' )
+          a.user-called__link( (click)='cancelCall()' )
+            span( class='fa fa-phone' )

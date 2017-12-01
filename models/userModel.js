@@ -28,10 +28,6 @@ module.exports.getUserByNick = (nick, cb) => {
   userModel.findOne({ nick: nick }, cb)
 }
 
-// module.exports.getLoggedUsers = cb => {
-//   userModel.find({ logged: true }, cb)
-// }
-
 module.exports.addUser = (newUser, cb) => {
   bcrypt.genSalt(10, (err, salt) => {
     bcrypt.hash(newUser.pass, salt, (err, hash) => {
@@ -43,9 +39,6 @@ module.exports.addUser = (newUser, cb) => {
     })
   })
 }
-
-//module.exports.updateUserByNick   =   (bool, nick, cb) => { userModel.update(
-//    { nick: nick }, { $set: { logged: bool } }, cb)}
 
 module.exports.comparePassword = (candidatePassword, hash, cb) => {
   bcrypt.compare(candidatePassword, hash, (err, isMatch) => {

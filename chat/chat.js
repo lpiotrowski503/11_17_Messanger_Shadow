@@ -2,7 +2,7 @@ module.exports = {
   start: io => {
     const talkModel = require('../models/talkModel')
 
-    let users = ['cycu', 'dupa']
+    let users = []
     //---------------------------------------
     //  setting room
     //---------------------------------------
@@ -21,9 +21,7 @@ module.exports = {
         //------------------------
         talkModel.saveTalk(this.newTalk, (err, user) => {
           if (err) throw err
-          else console.log('zapisano rozmowe')
         })
-        console.log(this.newTalk)
         //------------------------------------------
         //  sending for client
         //------------------------------------------
@@ -41,46 +39,40 @@ module.exports = {
       let newTalk
       let chatRoom
 
-      console.log('connect id: ', socket.id)
-
-      socket.on('disconnect', () => {
-        console.log('user disconnected')
-      })
+      socket.on('disconnect', () => {})
       //----------------------------------------------
       // opening new talk with array users and id talk
       //----------------------------------------------
       socket.on('callUser', data => {
-        console.log(data)
-        //-----------------------------
-        //  find talk
-        //-----------------------------
-        talkModel.findTalk(data, (err, talk) => {
-          if (err) throw err
-          if (talk) {
-            if (
-              (data.users[0] === talk.users[0] ||
-                data.users[0] === talk.users[1]) &&
-              (data.users[1] === talk.users[0] ||
-                data.users[1] === talk.users[1])
-            ) {
-              this.newTalk = talk
-              io.sockets.emit('callUser', this.newTalk)
-              console.log('znaleziono rozmowe')
+        if (data.msg === 'connect talk') {
+          //-----------------------------
+          //  find talk
+          //-----------------------------
+          talkModel.findTalk(data, (err, talk) => {
+            if (err) throw err
+            if (talk) {
+              if (
+                (data.to === talk.users[0] || data.to === talk.users[1]) &&
+                (data.from === talk.users[0] || data.from === talk.users[1])
+              ) {
+                this.newTalk = talk
+                io.sockets.emit('callUser', this.newTalk)
+              } else {
+                this.newTalk = new talkModel({
+                  users: [data.from, data.to]
+                })
+                io.sockets.emit('callUser', this.newTalk)
+              }
             } else {
               this.newTalk = new talkModel({
-                users: data.users
+                users: [data.from, data.to]
               })
               io.sockets.emit('callUser', this.newTalk)
-              console.log('nie znaleziono rozmowy')
             }
-          } else {
-            this.newTalk = new talkModel({
-              users: data.users
-            })
-            io.sockets.emit('callUser', this.newTalk)
-            console.log('nie znaleziono rozmowy')
-          }
-        })
+          })
+        } else if (data.msg === 'call to user') {
+          io.sockets.emit('callUser', data)
+        }
       })
       //-----------------
       // go set chat room

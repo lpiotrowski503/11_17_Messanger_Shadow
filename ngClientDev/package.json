@@ -5,14 +5,15 @@
   "scripts": {
     "ng": "ng",
     "start": "run-p pug-it:w server",
-    "build": "ng build",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "pug-it": "pug src",
     "pug-it:w": "pug src -P -w",
     "server": "ng serve",
-    "pwa": "ng build --prod && sw-precache --root=../ngClient --config=precache-config.js"
+    "pwa":
+      "ng build --prod && sw-precache --root=../ngClient --config=precache-config.js"
   },
   "private": true,
   "dependencies": {

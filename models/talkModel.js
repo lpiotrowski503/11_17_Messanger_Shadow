@@ -23,7 +23,7 @@ const mongoose = require('mongoose'),
 //----------MODEL-METODS------------------------//
 
 module.exports.findTalk = (talk, cb) => {
-  talkModel.findOne({ users: talk.users[0], users: talk.users[1] }, cb)
+  talkModel.findOne({ users: talk.to, users: talk.from }, cb)
 }
 
 module.exports.saveTalk = (newTalk, cb) => {

@@ -26,7 +26,6 @@ export class RoomComponent implements OnInit, OnDestroy {
   connect(id) {
     this.userWriteBool = false
     this.chat.listener('chatRoom', data => {
-      // console.log(data.users)
       this.chat.users = data
       data.messages.forEach(el => {
         this.chat.getUserOutputMessage(el, this.chat.message.user)

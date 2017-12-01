@@ -37,6 +37,7 @@ export class RegisterComponent {
         cssClass: 'alert-error',
         timeout: 5000
       })
+      this.spinner.spinnerControler()
       return false
     }
 

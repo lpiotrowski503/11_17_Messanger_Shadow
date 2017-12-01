@@ -18,6 +18,53 @@
   article
     div
       a
-        +padding(10px, 40px)
+        display: flex
+        justify-content: space-between
+        align-items: center
+        +y(46px)
         +margin(10px, auto)
         border-radius: 23px
+
+        span:nth-child(1)
+          font-size: 50px
+
+        span:nth-child(2)
+          +padding(0px, 20px)
+
+  .user-called
+    +position(fixed, 0px, 0px)
+    +x(100%)
+    +y(100%)
+    +z(800)
+    +flex(null, null, null, column, center, center)
+
+    +bg(rgba(#f00, 0.7))
+
+  .user-called__container
+    +padding(20px)
+    +bg(rgba(#0f0, 0.7))
+
+  .user-called__link-container
+    display: flex
+
+    a:nth-child(1)
+      +bg(#0f0)
+
+    a:nth-child(2)
+      transform: rotateZ(135deg)
+      +bg(#f00)
+
+  .user-called__link
+    display: flex
+    justify-content: center
+    align-items: center
+    +margin(10px)
+    border-radius: 25px
+    box-shadow: none !important
+
+    *
+      +x(40px)
+      +y(40px)
+      +margin(5px)
+      font-size: 40px
+
