@@ -1,0 +1,129 @@
+{
+  "navBar": [
+    {
+      "title": "O aplikacji"
+    },
+    {
+      "title": "Chat"
+    },
+    {
+      "title": "Profil"
+    },
+    {
+      "title": "Logowanie"
+    },
+    {
+      "title": "Rejestracja"
+    },
+    {
+      "title": "Wyloguj"
+    }
+  ],
+  "lang": {
+    "title": "Języki",
+    "langs": [
+      {
+        "title": "Polski"
+      },
+      {
+        "title": "Angielski"
+      }
+    ]
+  },
+  "theme": {
+    "title": "motywy",
+    "themes": [
+      {
+        "title": "Motyw 1"
+      },
+      {
+        "title": "Motyw 2"
+      },
+      {
+        "title": "Motyw 3"
+      }
+    ]
+  },
+  "home": {
+    "header": {
+      "h1": "Witaj w Chatilli",
+      "p1":
+        "Chatilla to aplikacja do komunikowania się w czasie rzeczywistym, inspirowana Messanger'em",
+      "p2": "Zawiera funkcjonajności jak",
+      "li1": [
+        "Tworzenie konta",
+        "Autoryzacja",
+        "Czat czasu rzeczywistego",
+        "Zapisywanie rozmowy do bazy danych",
+        "Aplikacja progresywna",
+        "Wielojęzyczna",
+        "Wielomotywowa"
+      ]
+    },
+    "article": {
+      "h1": "Do stworzenia aplikacji użyłem",
+      "li1": [
+        "Html5",
+        "Css3",
+        "Javascript",
+        "ES6",
+        "Typescript",
+        "Angular 4",
+        "Sass",
+        "Flash messages"
+      ],
+      "h2":
+        "Natomiast do stworzenia serwera zajmującego się obsługą aktywności użytkownika",
+      "li2": [
+        "Node.js",
+        "Express",
+        "MongoDb",
+        "Mongoose",
+        "Socket.io",
+        "Passport",
+        "Json web token"
+      ],
+      "h3": "Poza tym wykorzystałem",
+      "li3": [
+        "Responsive web design",
+        "Single page application",
+        "Progresive web app"
+      ],
+      "h4": "W przyszłości zamierzam rozwinąć o",
+      "li4": [
+        "WebRTC - video rozmowy",
+        "Wyszukiwanie z listy zalogowanych użytkowników",
+        "Logowanie przez facebook i google",
+        "Dodanie zdjęcia do profilu",
+        "Edycja profilu",
+        "Resetowanie hasła przez wysłanie e-maila z linkiem",
+        "Dodanie daty do wiadomości",
+        "Tworzenie kolorystyki użytkownika",
+        "Lazy Load"
+      ]
+    }
+  },
+  "login": {
+    "nick": "Nick",
+    "password": "Hasło",
+    "button": "Zaloguj się"
+  },
+  "register": {
+    "nick": "Nick",
+    "password": "Hasło",
+    "button": "Zarejestruj się"
+  },
+  "messages": {
+    "logged": "Jesteś zalogowany",
+    "logOut": "Jesteś wylogowany",
+    "noCompleted": "Proszę uzupełmić pola"
+  },
+  "users": {
+    "h3": "Zalogowani użytkownicy"
+  },
+  "room": {
+    "somebody": "Pisze",
+    "send": "Wyślij",
+    "exit": "X"
+  }
+}

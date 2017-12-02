@@ -30,7 +30,7 @@ export class ChatService implements Message, Talk, ChatRoom {
 
   connect() {
     if (!this.connected) {
-      this.socket = io.connect('http://localhost:3000')
+      this.socket = io.connect('/')
       this.connected = true
       console.log('connected')
     }

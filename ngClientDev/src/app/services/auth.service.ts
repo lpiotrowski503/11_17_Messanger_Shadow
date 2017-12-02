@@ -1,7 +1,8 @@
 import { ChatService } from './chat.service'
 import { Injectable } from '@angular/core'
 import { Http, Headers } from '@angular/http'
-import 'rxjs/add/operator/map'
+// import 'rxjs/add/operator/map'
+import 'rxjs/Rx'
 import { tokenNotExpired } from 'angular2-jwt'
 
 @Injectable()
@@ -14,9 +15,9 @@ export class AuthService {
   // method for logging and rejestration
   signUser(user, url) {
     const header = new Headers()
-    header.append('Content-Type', 'application/json')
+    header.append('Content-Type', 'application/json; charset=utf-8')
     return this.http
-      .post(`http://localhost:3000/${url}`, user, { headers: header })
+      .post(`/${url}`, user, { headers: header })
       .map(res => res.json())
   }
 
@@ -26,9 +27,7 @@ export class AuthService {
     this.loadToken()
     header.append('Authorization', this.authToken)
     header.append('Content-Type', 'application/json')
-    return this.http
-      .get(`http://localhost:3000/${url}`, { headers: header })
-      .map(res => res.json())
+    return this.http.get(`/${url}`, { headers: header }).map(res => res.json())
   }
 
   // load token from local storage for authorization
