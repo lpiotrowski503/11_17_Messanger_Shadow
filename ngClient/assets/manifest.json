@@ -1,8 +1,7 @@
 {
   "name": "Chatilla",
   "short_name": "Chat",
-  "icons": [
-    {
+  "icons": [{
       "src": "icons/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png"

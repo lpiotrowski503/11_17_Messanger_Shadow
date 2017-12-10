@@ -12,8 +12,7 @@
     "pug-it": "pug src",
     "pug-it:w": "pug src -P -w",
     "server": "ng serve",
-    "pwa":
-      "ng build --prod && sw-precache --root=../ngClient --config=precache-config.js"
+    "pwa": "ng build --prod && sw-precache --root=../ngClient --config=precache-config.js"
   },
   "private": true,
   "dependencies": {
@@ -51,6 +50,7 @@
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "node-sass": "^4.9.0",
     "npm-run-all": "^4.1.1",
     "protractor": "~5.1.2",
     "pug-cli": "^1.0.0-alpha6",

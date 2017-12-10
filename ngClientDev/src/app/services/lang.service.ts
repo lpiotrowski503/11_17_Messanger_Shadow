@@ -8,8 +8,14 @@ export class LangService {
   constructor(private http: Http) {}
 
   getLang(lang) {
-    return this.http
-      .get(`../../assets/config/langs/${lang}.json`)
-      .map(res => res.json())
+    if (lang === 'pl' || lang === 'en') {
+      return this.http
+        .get(`../../assets/config/langs/${lang}.json`)
+        .map(res => res.json())
+    } else {
+      return this.http
+        .get(`../../assets/config/langs/pl.json`)
+        .map(res => res.json())
+    }
   }
 }
