@@ -9,57 +9,77 @@ const express = require('express'),
   configDb = require('./config/configDb'),
   routes = require('./routes/routes'),
   socket = require('socket.io'),
-  chat = require('./chat/chat')
+  chat = require('./chat/chat');
 
 //----------DB-CONNECTION------------------//
 
-mongoose.connect(configDb.database)
+function connect() {
+  const connectOptions = {
+    useMongoClient: true,
+    autoReconnect: true
+  };
 
-//-----error-----//
-mongoose.connection.on('error', err => {
-  throw err
-})
+  const uri = configDb.database;
 
-//-----connection-----//
-mongoose.connection.once('open', () => {
-  console.log('Connected to db')
-})
+  mongoose.Promise = global.Promise;
+  mongoose.connect(uri, connectOptions);
+  // mongoose.connect(uri, connectOptions);
+
+  // mongoose
+  //   .connect(configDb.database, { useNewUrlParser: true })
+  //   .then(() => console.log('connected db'))
+  //   .catch(() => console.log('connected error'));
+}
+
+connect();
+// mongoose.connect(configDb.database);
+
+// //-----error-----//
+// mongoose.connection.on('error', err => {
+//   console.log('błąd bazy danych');
+//   throw err;
+// });
+
+// //-----connection-----//
+// mongoose.connection.once('open', () => {
+//   console.log('Connected to db');
+// });
 
 //----------EXPRESS-APP--------------------//
 
 const app = express(),
-  port = process.env.PORT || 8080
+  port = process.env.PORT || 8080;
 
 //----------CLIENT <=> SERVER ( COMUNICATION DIFRENT PORTS )------//
 
-app.use(cors())
+app.use(cors());
 
 //----------CLIENT-STATIC-FOLDER------//
 
-app.use(express.static(path.join(__dirname, 'ngClient')))
+app.use(express.static(path.join(__dirname, 'ngClient')));
 
 //----------BODY-PARSER ( JSON MSG ACCESS )------//
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 //----------PASSPORT ( SESSION TOKEN )------//
 
-app.use(passport.initialize())
-app.use(passport.session())
-require('./config/passport')(passport)
+app.use(passport.initialize());
+app.use(passport.session());
+require('./config/passport')(passport);
 
 //----------ROUTING-------------------------//
 
-app.use('/', routes)
+app.use('/', routes);
 
 //----------START-SERVER--------------------//
 
 let server = app.listen(port, () => {
-    console.log('Server runing...')
+    console.log('Server runing...');
   }),
-  io = socket(server)
+  io = socket(server);
 
 //----------WEB-SOCKET--------------------//
 
-chat.start(io)
+chat.start(io);
